@@ -1,34 +1,46 @@
-/**
- * 
- */
-package bt;
-
+package ifelse;
 import java.util.Scanner;
-
-/**
- * @author USER
- *
- */
 public class bt3 {
-	public static void main (String[] args) {
-		Scanner input = new Scanner(System.in);
-		try {
-			System.out.print("nhap a : ");
-			double a = input.nextDouble();
-			System.out.print("nhap b : ");
-			double b = input.nextDouble();
-			
-			System.out.println("a + b = " + (a+b));
-			System.out.println("a - b = " + (a-b));
-			System.out.println("a * b = " + (a*b));
-			System.out.println("a / b = " + (a/b));
-			System.out.println("a % b = " + (a%b));
-			System.out.println("a ^ b = " + (Math.pow(a,b)));
-		}
-		catch(Exception e) {
-			System.out.print(e);
-		}
-		
-	}
+	 public static void main(String[] args)
+	    {
+	        Scanner in = new Scanner(System.in);
+	        System.out.print("Input value: ");
+	        double input = in.nextDouble();
 
+	        if (input > 0)
+	        {
+	            if (input < 1)
+	            {
+	                System.out.println("Positive small number");
+	            }
+	            else if (input > 1000000)
+	            {
+	                System.out.println("Positive large number");
+	            }
+	            else
+	            {
+	                System.out.println("Positive number");
+	            }
+	        }
+	        else if (input < 0)
+	        {
+	            if (Math.abs(input) < 1)
+	            {
+	                System.out.println("Negative small number");
+	            }
+	            else if (Math.abs(input) > 1000000)
+	            {
+	                System.out.println("Negative large number");
+	            }
+	            else
+	            {
+	                System.out.println("Negative number");
+	            }
+	        }
+	        else
+	        {
+	            System.out.println("Zero");
+	        }
+	        
+	    }
 }
