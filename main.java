@@ -18,7 +18,7 @@ public class main {
 			System.out.println("[4]	Tim UCLN va BCNN");
 			System.out.println("[5]	Liet ke so nguyen to nho hon n");
 			System.out.println("[6]	Liet ke n so nguyen to dau tien");
-			System.out.println("[7]	Liet ke tat ca cac so nguyen");
+			System.out.println("[7]	Liet ke tat ca cac so nguyen to co 5 chu so");
 			System.out.println("[8]	Tinh tong cac chu so cua 1 so");
 			System.out.println("[9]	Liet ke so thuan nghich co ");
 			System.out.println("[10]	Tinh Max, Min, Average cua ");
@@ -133,7 +133,15 @@ public class main {
 	}
 
 	static void c7() {
-
+		int count = 0;
+		System.out.println("Liệt kê tất cả số nguyên tố có 5 chữ số:");
+		for (int i = 10001; i < 99999; i += 2) {
+			if (MathBasic.lasonguyento(i)) {
+				System.out.println(i);
+				count++;
+			}
+		}
+		System.out.println("Tổng các số nguyên tố có 5 chữ số là: " + count);
 	}
 
 	static void c8() {
