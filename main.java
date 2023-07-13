@@ -16,12 +16,12 @@ public class main {
 			System.out.println("[2]	Giai thua");
 			System.out.println("[3]	Tim Fibonacci thu n");
 			System.out.println("[4]	Tim UCLN va BCNN");
-			System.out.println("[5]");
-			System.out.println("[6]");
-			System.out.println("[7]");
-			System.out.println("[8]");
-			System.out.println("[9]");
-			System.out.println("[10]");
+			System.out.println("[5]	Liet ke so nguyen to nho hon n");
+			System.out.println("[6]	Liet ke n so nguyen to dau tien");
+			System.out.println("[7]	Liet ke tat ca cac so nguyen");
+			System.out.println("[8]	Tinh tong cac chu so cua 1 so");
+			System.out.println("[9]	Liet ke so thuan nghich co ");
+			System.out.println("[10]	Tinh Max, Min, Average cua ");
 			slted = input.nextInt();
 			switch (slted) {
 			case 1:
@@ -101,11 +101,35 @@ public class main {
 	}
 
 	static void c5() {
-
+		Scanner input = new Scanner(System.in);
+		System.out.print("Nhap n:");
+		int n = input.nextInt();
+		System.out.printf("Tất cả các số nguyên tố nhỏ hơn %d là: \n", n);
+		if (n >= 2) {
+			System.out.print(2);
+		}
+		for (int i = 3; i < n; i += 2) {
+			if (MathBasic.lasonguyento(i)) {
+				System.out.print(" " + i);
+			}
+		}
+		System.out.println();
 	}
 
 	static void c6() {
-
+		Scanner input = new Scanner(System.in);
+		System.out.print("Nhap n:");
+		int n = input.nextInt();
+		System.out.printf("%d số nguyên tố đầu tiên là: \n", n);
+		int dem = 0; // đếm số số nguyên tố
+		int i = 2; // tìm số nguyên tố bắt dầu từ số 2
+		while (dem < n) {
+			if (MathBasic.lasonguyento(i)) {
+				System.out.print(i + " ");
+				dem++;
+			}
+			i++;
+		}
 	}
 
 	static void c7() {
@@ -190,5 +214,18 @@ class MathBasic {
 
 	public static int BCNN(int a, int b) {
 		return (a * b) / UCLN(a, b);
+	}
+
+	public static boolean lasonguyento(int n) {
+		if (n < 2) {
+			return false;
+		}
+		int squareRoot = (int) Math.sqrt(n);
+		for (int i = 2; i <= squareRoot; i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
