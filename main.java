@@ -2,6 +2,9 @@ package menubt;
 
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class main {
 
 	public static void main(String[] args) {
@@ -19,9 +22,9 @@ public class main {
 			System.out.println("[5]	Liet ke so nguyen to nho hon n");
 			System.out.println("[6]	Liet ke n so nguyen to dau tien");
 			System.out.println("[7]	Liet ke tat ca cac so nguyen to co 5 chu so");
-			System.out.println("[8]	Tinh tong cac chu so cua 1 so");
-			System.out.println("[9]	Liet ke so thuan nghich co ");
-			System.out.println("[10]	Tinh Max, Min, Average cua ");
+			System.out.println("[8]	Tinh tong cac chu so cua 1 so nguyen");
+			System.out.println("[9]	Liet ke so thuan nghich co 6 chu so");
+			System.out.println("[10]	Tinh Max, Min, Average cua mang");
 			slted = input.nextInt();
 			switch (slted) {
 			case 1:
@@ -145,15 +148,26 @@ public class main {
 	}
 
 	static void c8() {
-
+		Scanner input = new Scanner(System.in);
+		System.out.print("Nhap n:");
+		int n = input.nextInt();
+		System.out.println("Tong cac chu so nguyen cua " + n + " la: " + MathBasic.tong1songuyen(n));
 	}
 
 	static void c9() {
-
+		int count = 0;
+		System.out.println("Liệt kê tất cả số thuan nghich co 6 chữ số:");
+		for (int i = 100001; i < 999999; i += 2) {
+			if (MathBasic.lasonguyento(i)) {
+				System.out.println(i);
+				count++;
+			}
+		}
+		System.out.println("Tổng các số thuan nghich co 6 chữ số là: " + count);
 	}
 
 	static void c10() {
-
+		
 	}
 
 }
@@ -235,5 +249,49 @@ class MathBasic {
 			}
 		}
 		return true;
+	}
+
+	public static int tong1songuyen(int n) {
+		int total = 0;
+		do {
+			total = total + n % 10;
+			n = n / 10;
+		} while (n > 0);
+		return total;
+	}
+
+	public static boolean isThuanNghich(int n) {
+		List<Integer> listNumbers = new ArrayList<>();
+		do {
+			listNumbers.add(n % 10);
+			n = n / 10;
+		} while (n > 0);
+		int size = listNumbers.size();
+		for (int i = 0; i < (size / 2); i++) {
+			if (listNumbers.get(i) != listNumbers.get(size - i - 1)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	public static double Max (double[] arr) {
+		double m = arr[0];
+		for(int i=0;i<arr.length;i++)
+			if(m<arr[i])
+				m=arr[i];
+		return m;
+	}
+	public static double Min (double[] arr) {
+		double m = arr[0];
+		for(int i=0;i<arr.length;i++)
+			if(m>arr[i])
+				m=arr[i];
+		return m;
+	}
+	public static double Avg (double[] arr) {
+		double s = 0;
+		for(int i=0;i<arr.length;i++)
+			s+=arr[i];
+		return s;
 	}
 }
