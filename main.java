@@ -167,7 +167,21 @@ public class main {
 	}
 
 	static void c10() {
-		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Nhập số phần tử của mảng: ");
+        int n = input.nextInt();
+        double[] arr = new double[n];
+        System.out.print("Nhập các phần tử của mảng: \n");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("a[%d] = ", i);
+            arr[i] = input.nextInt();
+        }
+        System.out.print("Các phần tử của mảng: ");
+        MathBasic.showMang(arr);
+        System.out.println();
+        System.out.println("phan tu Min cua mang tren la : "+ MathBasic.Min(arr));
+        System.out.println("phan tu Max cua mang tren la : "+ MathBasic.Max(arr));
+        System.out.println("Avarage cua mang tren la : "+ MathBasic.Avg(arr));
 	}
 
 }
@@ -294,4 +308,9 @@ class MathBasic {
 			s+=arr[i];
 		return s;
 	}
+	public static void showMang(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
 }
