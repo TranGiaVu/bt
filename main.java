@@ -121,8 +121,8 @@ public class main {
 		System.out.print("Nhap n:");
 		int n = input.nextInt();
 		System.out.printf("%d số nguyên tố đầu tiên là: \n", n);
-		int dem = 0; // đếm số số nguyên tố
-		int i = 2; // tìm số nguyên tố bắt dầu từ số 2
+		int dem = 0;
+		int i = 2;
 		while (dem < n) {
 			if (MathBasic.lasonguyento(i)) {
 				System.out.print(i + " ");
