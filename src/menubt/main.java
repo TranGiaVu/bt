@@ -2,7 +2,7 @@ package menubt;
 
 import java.util.Scanner;
 
-import OOP.Point;
+import OOP.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +11,18 @@ public class main {
 
 	public static void main(String[] args) {
 //		menu();
-		Point p = new Point();
-		Point p2 = new Point(10, 5);
-		Point p3 = new Point(p2);
-		System.out.println("p = " + p.toString() + "; p2 = " + p2.toString() + "; p3 = " + p3.toString());
-		double dpp2 = p.distance(p2);
-		double dp2p = p2.distance(p);
-		System.out.println(dpp2 + " = " + dp2p);
-		double dpp3 = Point.distance(p, p3);
-		System.out.println(dpp3);
+//		Point p = new Point();
+//		Point p2 = new Point(10, 5);
+//		Point p3 = new Point(p2);
+//		System.out.println("p = " + p.toString() + "; p2 = " + p2.toString() + "; p3 = " + p3.toString());
+//		double dpp2 = p.distance(p2);
+//		double dp2p = p2.distance(p);
+//		System.out.println(dpp2 + " = " + dp2p);
+//		double dpp3 = Point.distance(p, p3);
+//		System.out.println(dpp3);
+		QLLH lop = new QLLH();
+		lop.nhapDssv();
+		lop.xuatDssv();
 	}
 
 	static void menu() {
