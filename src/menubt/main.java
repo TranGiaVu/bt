@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import OOP.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,15 @@ public class main {
 //		double dpp3 = Point.distance(p, p3);
 //		System.out.println(dpp3);
 		QLLH lop = new QLLH();
-		lop.nhapDssv();
-		lop.xuatDssv();
+//		lop.nhapDssv();
+//		lop.xuatDssv();
+		try {
+			lop.loadFile();
+			lop.xuatDssv();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
 	}
 
 	static void menu() {

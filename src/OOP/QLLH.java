@@ -2,9 +2,11 @@ package OOP;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class QLLH {
 	ArrayList<QLSV> dssv;
+	String fileName = "dssv.dat";
 
 	public ArrayList<QLSV> getDssv() {
 		return dssv;
@@ -104,17 +106,65 @@ public class QLLH {
 		double dtb = 0;
 		if (dssv != null && dssv.size() > 0) {
 
-//			using crtl + spacebar to gen foreach
+//			using crtl + spacebar to gen foreach 
 
 			for (QLSV qlsv : dssv) {
 				dtb += qlsv.DTB;
 			}
-			return dtb/dssv.size();
+			return dtb / dssv.size();
 		}
 		return 0;
 	}
-	
+
 	public void xuatDTB() {
-		
+
+	}
+
+	public void saveAsFile(String newFile) throws IOException {
+		BufferedWriter file = new BufferedWriter(new FileWriter(newFile));
+		if (dssv != null && dssv.size() > 0) {
+			for (QLSV qlsv : dssv) {
+//				if(sv>=8){
+				String line = String.format("%s#%s#%s#%s#%s#%f", qlsv.MSV, qlsv.ho, qlsv.ten, qlsv.NS, qlsv.GT,
+						qlsv.DTB);
+				file.write(line);
+				file.newLine();
+//			}
+			}
+		}
+		file.close();
+	}
+
+	public void saveFile() throws IOException {
+		BufferedWriter file = new BufferedWriter(new FileWriter(fileName));
+		if (dssv != null && dssv.size() > 0) {
+			for (QLSV qlsv : dssv) {
+				String line = String.format("%s#%s#%s#%s#%s#%f", qlsv.MSV, qlsv.ho, qlsv.ten, qlsv.NS, qlsv.GT,
+						qlsv.DTB);
+				file.write(line);
+				file.newLine();
+			}
+		}
+		file.close();
+	}
+
+	public void loadFile() throws IOException {
+		BufferedReader file = new BufferedReader(new FileReader(fileName));
+		dssv = new ArrayList<>();
+		do {
+			String line = file.readLine();
+			if (line == null || line.isEmpty())
+				break;
+			String[] rs = line.split("#");
+			String MSV = rs[0];
+			String ho = rs[1];
+			String ten = rs[2];
+			String NS = rs[3];
+			int gt = rs[4].equals("Nam") ? 0 : 1;
+			double DTB = Double.parseDouble(rs[5]);
+			QLSV sv = new QLSV(MSV, ho, ten, NS, gt, DTB);
+			dssv.add(sv);
+		} while (true);
+		file.close();
 	}
 }
